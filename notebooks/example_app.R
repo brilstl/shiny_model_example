@@ -55,10 +55,24 @@ server <- shinyServer(function(input, output, session) {
       
     }else{
       
+      x <- 
+        open_dataset("data/bbga_geo.parquet") %>%
+        filter(jaar == 2019 & naam == selected_area()) %>%
+        select(naam,
+               variabele,
+               waarde) %>%
+        collect()
+      
+      x <- 
+        x %>%
+        pivot_wider(
+          values_from = waarde,
+          names_from = variabele
+        )
+      
       pred_outcome <- 
         read_rds("data/example_model.rds") %>%
-        filter(naam == selected_area()) %>%
-        predict(., new_data = ., type = "conf_int") 
+        predict(., new_data = x, type = "conf_int") 
       
       pred_lower <- 
         pred_outcome %>%

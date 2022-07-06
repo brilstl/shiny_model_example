@@ -23,11 +23,61 @@ bar_fun <- function(selection){
     geom_col_interactive() +
     scale_x_continuous(labels = scales::percent) +
     guides(fill = guide_legend(nrow = 3, reverse = TRUE, byrow = TRUE)) +
-    ggois::theme_ois() +
-    scale_fill_manual(values = rev(unlist(unname(ggois::os_colours)))) +
+    scale_fill_manual(values = c("#323232", "#767676", "#B4B4B4")) +
     labs(x = NULL, y = NULL, fill = NULL, title = "type of property registration") +
+    theme_bw() +
     theme(
-      legend.position = "none"
+      legend.position = "none",
+      axis.text = element_text(
+        family = 'sans',
+        size = 20,
+        face = "bold"
+      ),
+      plot.caption = element_text(
+        family = 'sans',
+        size = 14,
+        face = "bold"
+      ),
+      axis.title = element_text(
+        family = 'sans',
+        hjust = 1,
+        size = 14
+      ),
+      plot.subtitle = element_text(family = 'sans',
+                                   size = 20),
+      plot.title = element_text(
+        family = 'sans',
+        lineheight = 1.5,
+        size = 21,
+        face = "bold"
+      ),
+      panel.grid.major = element_blank(),
+      strip.background = element_blank(),
+      panel.grid.major.y = element_line(size = 1.2),
+      panel.grid.minor.y = element_blank(),
+      panel.grid.minor.x = element_blank(),
+      legend.justification = "center",
+      panel.border = element_rect(fill = "transparent",
+                                  color = NA),
+      legend.text = element_text(family = 'sans',
+                                 size = 20),
+      legend.title = element_text(
+        family = 'sans',
+        size = 20,
+        face = "bold"
+      ),
+      axis.ticks = element_blank(),
+      panel.background = element_rect(fill = "transparent"),
+      plot.background = element_rect(fill = "transparent",
+                                     color = NA),
+      legend.background = element_rect(fill = "transparent"),
+      legend.box.background = element_rect(fill = "transparent",
+                                           colour = "transparent"),
+      strip.text = element_text(
+        family = 'sans',
+        size = 20,
+        face = "bold"
+      )
     )
   
   gp1 <- 

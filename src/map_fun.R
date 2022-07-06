@@ -32,7 +32,7 @@ map_fun <- function(){
                  "{label}: {waarde} jr.<br>neigbourhood: {naam}"
                ))) +
     geom_sf_interactive(colour = "white") +
-    scale_fill_gradient2(low = ggtheme.ois::kleuren$blauw[1], high = ggtheme.ois::kleuren$rood[1]) + 
+    scale_fill_gradient2(low = "#004699", high = "#ec0000") + 
     theme_void() +
     guides(fill = guide_colourbar(barwidth = 14, barheight = .2)) + 
     theme(
@@ -64,7 +64,7 @@ map_fun <- function(){
          options = list(opts_tooltip(css = tooltip_css),
                         opts_hover(css = "fill:#77BA99;"),
                         opts_selection(type = "single",
-                                       css = "fill:pink;stroke:gray;")))
+                                       css = "fill:black;stroke:gray;")))
   
   
 }

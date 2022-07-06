@@ -1,5 +1,6 @@
 # libraries ----
 library(shiny)
+library(tidymodels)
 lapply(list.files(pattern = "[.]R$", path = "src", full.names = TRUE), source)
 
 ui <- shinyUI(fluidPage(
@@ -57,7 +58,7 @@ server <- shinyServer(function(input, output, session) {
       pred_outcome <- 
         read_rds("data/example_model.rds") %>%
         filter(naam == selected_area()) %>%
-        predict(fit_workflow, new_data = ., type = "conf_int") 
+        predict(., new_data = ., type = "conf_int") 
       
       pred_lower <- 
         pred_outcome %>%

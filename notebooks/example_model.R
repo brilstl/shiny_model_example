@@ -51,7 +51,7 @@ fit_workflow <-
   lm_wflow %>%
   fit(x)
 
-write_rds(x, "data/example_model.rds")
+write_rds(fit_workflow, "data/example_model.rds")
 
 fit_workflow %>%
   extract_fit_parsnip() %>%
